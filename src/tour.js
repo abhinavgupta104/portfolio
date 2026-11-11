@@ -18,7 +18,7 @@ const STOPS = [
   { el: '#tatva', room: 'tatva', say: 'Tatva is his component library. One sentence in, one website out.', wait: 9500 },
   { el: '#sms', room: 'sms', say: 'The SMS platform. Typed here, delivered there, in about four seconds.', wait: 9000 },
   { el: '#panel', room: 'panel', say: 'The WhatsApp panel. It chats, it sells, and it takes the payment.', wait: 9500 },
-  { el: '#gallery', say: 'Six websites. All live. Go on, check.', hold: 1200, centre: true, slide: true },
+  { el: '#gallery', say: 'Seven websites. All live. Go on, check.', hold: 1200, centre: true, slide: true },
   { el: '#about', say: 'That is the human. He runs Arch. He will mention it.', hold: 3600 },
   { el: '#contact', say: 'That is the tour. He is better in person. Say hi.', hold: 3400, point: '#contactLinks a' },
 ];

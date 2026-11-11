@@ -25,7 +25,14 @@ export class AgentCursor {
 
   /** Keep the name tag on screen: hang it to the left when the pointer is near the right edge. */
   side(x) {
-    if (this.hostW) this.el.classList.toggle('is-flip', x > this.hostW - 150);
+    if (!this.hostW) return;
+    const flip = x > this.hostW - 150;
+    if (flip !== this.flipped) { this.flipped = flip; this.el.classList.toggle('is-flip', flip); }
+  }
+
+  /** Re-check the tag's side every frame of a move, using where the pointer is now. */
+  follow() {
+    return () => this.side(gsap.getProperty(this.el, 'x'));
   }
 
   /** Resolve an element (or a point) to coordinates inside the host. */
@@ -59,9 +66,9 @@ export class AgentCursor {
     const dist = Math.hypot(p.x - this.x, p.y - this.y);
     const d = duration ?? clamp(dist / 900, 0.4, 1.05);
     this.x = p.x; this.y = p.y;
-    this.side(p.x);
-    if (!arc) return gsap.to(this.el, { x: p.x, y: p.y, duration: d, ease, overwrite: 'auto' });
-    gsap.to(this.el, { x: p.x, duration: d, ease: 'power2.inOut', overwrite: 'auto' });
+    const onUpdate = this.follow();
+    if (!arc) return gsap.to(this.el, { x: p.x, y: p.y, duration: d, ease, overwrite: 'auto', onUpdate });
+    gsap.to(this.el, { x: p.x, duration: d, ease: 'power2.inOut', overwrite: 'auto', onUpdate });
     return gsap.to(this.el, { y: p.y, duration: d, ease: 'power3.out', overwrite: 'auto' });
   }
 

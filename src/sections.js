@@ -128,7 +128,7 @@ function gallery() {
   const track = $('#galleryTrack');
   // The screenshots are lazy so they don't slow the first paint, but the cards
   // off to the right would otherwise load late and pop in mid-slide. Fetch all
-  // six once the section is a couple of screens away.
+  // seven once the section is a couple of screens away.
   ScrollTrigger.create({
     trigger: '#sites', start: 'top 300%', once: true,
     onEnter: () => $$('img', track).forEach((img) => { img.loading = 'eager'; }),
@@ -137,7 +137,7 @@ function gallery() {
     wrap.classList.add('is-native');
     return;
   }
-  // Desktop: the strip holds in the middle of the screen while the six sites
+  // Desktop: the strip holds in the middle of the screen while the seven sites
   // slide past, then lets go. Vertical scrolling becomes horizontal travel.
   gsap.to(track, {
     x: () => -galleryTravel(), ease: 'none',

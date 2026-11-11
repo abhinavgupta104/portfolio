@@ -230,7 +230,8 @@ img { display: block; max-width: 100%; }
   font: 600 11.5px/1 var(--f-mono); letter-spacing: .02em; padding: 6px 9px; border-radius: 3px 11px 11px 11px;
   white-space: nowrap; box-shadow: 0 6px 18px -6px rgba(0, 0, 0, .6);
 }
-.cur.is-flip .cur__tag { left: auto; right: 4px; border-radius: 11px 3px 11px 11px; }
+/* flipped: the tag hangs entirely to the left of the arrow tip, so it can't run off the right edge */
+.cur.is-flip .cur__tag { left: 2px; transform: translateX(-100%); border-radius: 11px 3px 11px 11px; }
 .cur__ring {
   position: absolute; left: -16px; top: -16px; width: 40px; height: 40px; border-radius: 50%;
   border: 2px solid var(--c); opacity: 0;

@@ -27,7 +27,7 @@ const INFO = [
   '<span class="t-y">Study</span>   Diploma, Information Technology',
   '<span class="t-y">OS</span>      Arch Linux, Hyprland',
   '<span class="t-y">Agents</span>  4 on duty',
-  '<span class="t-y">Sites</span>   6 live',
+  '<span class="t-y">Sites</span>   7 live',
 ];
 
 /** The fastfetch card. On a narrow screen the ASCII logo is dropped so lines don't wrap. */

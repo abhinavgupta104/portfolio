@@ -121,9 +121,9 @@ await tap('See prices');
 await tap('Pay ₹499');
 ok('panel takes the payment and tells the owner', await until(() => document.querySelector('.node[data-node="owner"]').classList.contains('is-on') && document.querySelector('.msg--pay.is-paid'), null));
 
-// gallery: all six screenshots are loaded before the strip starts to slide
+// gallery: all seven screenshots are loaded before the strip starts to slide
 await show('#sites');
-ok('six live sites are linked and loaded', await until(() => [...document.querySelectorAll('.shot')].filter((x) => x.href.startsWith('https://') && x.querySelector('img').complete && x.querySelector('img').naturalWidth > 0).length === 6, null, 8000));
+ok('seven live sites are linked and loaded', await until(() => [...document.querySelectorAll('.shot')].filter((x) => x.href.startsWith('https://') && x.querySelector('img').complete && x.querySelector('img').naturalWidth > 0).length === 7, null, 15000));
 
 // terminal
 await show('#term');
@@ -151,7 +151,7 @@ await page.mouse.wheel({ deltaY: 200 });
 ok('scrolling takes the wheel back', await until(() => !document.body.classList.contains('is-touring'), null, 3000));
 
 // the opening: skipping at any moment must leave a finished, correct hero
-for (const [when, label] of [[1900, 'while the desk is cleared'], [4300, 'during lights off'], [6400, 'while the crew builds']]) {
+for (const [when, label] of [[1900, 'while the desk is cleared'], [4300, 'during lights off'], [6400, 'while the crew builds'], [7800, 'during the second wave']]) {
   const fresh = await browser.newPage();
   await fresh.setViewport({ width: 1440, height: 900 });
   fresh.on('pageerror', (e) => errors.push(`pageerror (skip ${label}): ` + e.message));
@@ -166,7 +166,10 @@ for (const [when, label] of [[1900, 'while the desk is cleared'], [4300, 'during
       && getComputedStyle(document.querySelector('#draft')).display === 'none'
       && document.querySelector('#heroSay').textContent === 'I build AI agents that' && !document.querySelector('#heroSay .ch')
       && !document.querySelector('.btn.is-wire')
-      && [...document.querySelectorAll('.hero__line span, .hero__cta .btn, [data-carry], .nav__mark, #soundBtn, #tourBtn, #rot')].every(vis);
+      && [...document.querySelectorAll('.hero__line span, .hero__cta .btn, [data-carry], .nav__mark, #soundBtn, #tourBtn, #rot')].every(vis)
+      // nothing from the build is left on screen: no grid, frames, guides, and Stella's team has gone
+      && document.querySelector('.build').children.length === 0
+      && [...document.querySelectorAll('.cur')].filter((c) => /^(ChatGPT|Gemini|Claude|DeepSeek|Grok)$/.test(c.querySelector('.cur__tag').textContent)).every((c) => getComputedStyle(c).visibility === 'hidden');
   }));
   await fresh.close();
 }
@@ -178,7 +181,7 @@ for (const [when, label] of [[1900, 'while the desk is cleared'], [4300, 'during
   await fresh.goto(base, { waitUntil: 'domcontentloaded' });
   const ended = await fresh.waitForFunction(() => window.__booted === true, { timeout: 25000 }).then(() => true, () => false);
   const secs = ended ? await fresh.evaluate(() => (performance.now() - window.__introStart) / 1000) : 0;
-  ok('the opening plays to the end by itself', ended && secs > 8 && secs < 13, `${secs.toFixed(1)} s`);
+  ok('the opening plays to the end by itself', ended && secs > 9 && secs < 14, `${secs.toFixed(1)} s`);
   await fresh.close();
 }
 

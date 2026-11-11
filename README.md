@@ -61,7 +61,7 @@ pnpm smoke      # clicks through every demo and the terminal; needs `pnpm dev` r
 pnpm fps        # times the opening and reports any slow frames (target: 60 fps, none over 25 ms)
 pnpm shots page shots-out 1440x900     # screenshots of every section
 pnpm shots tour shots-out 1440x900     # frames of the whole Stella tour
-pnpm sites      # retakes the six website screenshots in public/shots
+pnpm sites      # retakes the seven website screenshots in public/shots
 pnpm font       # re-trims the Hindi font; run after adding a new Hindi word
 ```
 

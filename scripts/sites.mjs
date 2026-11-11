@@ -7,7 +7,7 @@ import { mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-const SITES = ['nucleusai.si', 'anilanandassociates.com', 'houskeys.co.in', 'xshootsms.com', 'divyarudra.com', 'poojahawan.com'];
+const SITES = ['nucleusai.si', 'riteshhng.com', 'anilanandassociates.com', 'houskeys.co.in', 'xshootsms.com', 'divyarudra.com', 'poojahawan.com'];
 // nucleusai.si opens on an almost empty particle field; its logo forms about 2,400 px in.
 const STORY = { 'nucleusai.si': [250, 250, 300, 400, 500, 700] };
 const only = process.argv.slice(2);
@@ -30,11 +30,14 @@ for (const domain of SITES.filter((d) => !only.length || only.includes(d))) {
     await page.goto(`https://${domain}`, { waitUntil: 'networkidle2', timeout: 45000 });
   } catch { /* a slow tracker should not stop the shot */ }
   await sleep(2500);
-  // dismiss consent / disclaimer dialogs
+  // Some sites navigate again after loading (a redirect, a language switch);
+  // let that settle instead of failing on the old page.
+  await page.waitForNetworkIdle({ idleTime: 800, timeout: 15000 }).catch(() => {});
+  // dismiss consent / disclaimer dialogs (buttons only: a matching link could leave the page)
   await page.evaluate(() => {
     const want = /^(i agree|agree|accept|accept all|got it|ok)$/i;
-    [...document.querySelectorAll('button, a')].filter((b) => want.test((b.textContent || '').trim())).forEach((b) => b.click());
-  });
+    [...document.querySelectorAll('button')].filter((b) => want.test((b.textContent || '').trim())).forEach((b) => b.click());
+  }).catch(() => {});
   await page.mouse.move(700, 450);
   if (STORY[domain]) {
     // a scroll-told hero: walk into it until the picture has formed
@@ -43,7 +46,7 @@ for (const domain of SITES.filter((d) => !only.length || only.includes(d))) {
     // nudge scroll-driven intros, then come back to the top
     await page.mouse.wheel({ deltaY: 300 });
     await sleep(900);
-    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.evaluate(() => window.scrollTo(0, 0)).catch(() => {});
     await page.mouse.wheel({ deltaY: -600 });
     await sleep(4500);
   }
