@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Abhinav Gupta — AI agents that do real work</title>
+  <meta name="description" content="Abhinav Gupta, 21, builds AI agents from Noida, India: Stella drives a laptop, Kavya makes real phone calls, NACC runs marketing, LeadScout finds customers.">
+  <meta name="theme-color" content="#08080b">
+  <meta property="og:title" content="Abhinav Gupta — AI agents that do real work">
+  <meta property="og:description" content="A portfolio presented by the agents themselves. Let Stella drive.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://portfolio.banadiyabhai.online/">
+  <meta property="og:image" content="https://portfolio.banadiyabhai.online/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://portfolio.banadiyabhai.online/og.jpg">
+  <link rel="canonical" href="https://portfolio.banadiyabhai.online/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script>
+    document.documentElement.classList.add('js');
+    // The opening always starts at the top of the page, so a refresh must not
+    // put the visitor back where they had scrolled to.
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    // Failsafe: if the script has not even started after 7 s, show the page without the opening.
+    setTimeout(function () {
+      if (window.__alive) return;
+      document.body.classList.remove('is-intro');
+      var d = document.getElementById('draft'); if (d) d.classList.add('is-gone');
+    }, 7000);
+  </script>
+</head>
+<body class="is-intro">
+  <a class="skip" href="#crew">Skip to the projects</a>
+
+  <!-- ───────── fixed chrome ───────── -->
+  <header class="nav" id="nav">
+    <a class="nav__mark" href="#top" aria-label="Abhinav Gupta, back to top">
+      <span class="nav__glyph" lang="hi" aria-hidden="true">अ</span>
+      <span class="nav__who">Abhinav Gupta</span>
+    </a>
+    <div class="island" id="island" role="status" aria-live="polite">
+      <span class="island__ring" aria-hidden="true"></span>
+      <span class="island__text" id="islandText">Portfolio</span>
+      <button class="island__stop" id="islandStop" type="button" hidden>Stop</button>
+    </div>
+    <div class="nav__actions">
+      <button class="pill" id="soundBtn" type="button" aria-pressed="false" data-you="sound">
+        <span class="pill__bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="pill__label">Sound off</span>
+      </button>
+      <button class="pill pill--solid" id="tourBtn" type="button" data-you="let her drive">
+        <span class="pill__play" aria-hidden="true"></span><span class="pill__label">Let Stella drive</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ───────── 00 · hero ───────── -->
+    <section class="hero" id="top" data-label="Hello">
+      <div class="hero__stage" id="heroStage">
+        <canvas class="hero__flow" id="flow" aria-hidden="true"></canvas>
+        <div class="hero__knock">
+          <h1 class="hero__name display" id="heroName" aria-label="Abhinav Gupta">
+            <span class="hero__line" aria-hidden="true"><span>A</span><span>B</span><span>H</span><span>I</span><span>N</span><span>A</span><span>V</span></span>
+            <span class="hero__line" aria-hidden="true"><span>G</span><span>U</span><span>P</span><span>T</span><span>A</span></span>
+          </h1>
+        </div>
+        <div class="hero__ui">
+          <p class="hero__meta hero__meta--l mono" data-carry>Portfolio <span class="dim">/ 2026 / AI agents</span></p>
+          <p class="hero__meta hero__meta--r mono" data-carry>Noida, India <span class="dim">·</span> <span id="clock">00:00:00</span> IST</p>
+          <div class="hero__foot">
+            <div class="hero__pitch" data-carry>
+              <p class="hero__tag"><span class="hero__say" id="heroSay">I build AI agents that</span>
+                <span class="rot" id="rot" aria-live="off"><span class="rot__w">pick up the phone.</span></span>
+              </p>
+              <div class="hero__cta">
+                <button class="btn btn--light" id="tourBtnHero" type="button" data-you="let her drive"><span class="btn__play" aria-hidden="true"></span>Let Stella drive</button>
+                <a class="btn btn--ghost" href="#def" data-you="scroll">I'll scroll myself</a>
+              </div>
+            </div>
+            <p class="hero__def mono" data-carry><b lang="hi">अभिनव</b> <span class="dim">abhinav · Sanskrit · adj.</span><br>new; never seen before.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- the "before" page Stella redesigns while the fonts load -->
+      <div class="draft" id="draft" aria-hidden="true">
+        <div class="draft__doc">
+          <p class="draft__h">Abhinav Gupta's Home Page</p>
+          <hr>
+          <p>Welcome to my portfolio. This page is under construction.</p>
+          <ul>
+            <li><u>Stella</u></li><li><u>Kavya</u></li><li><u>NACC</u></li><li><u>LeadScout</u></li>
+          </ul>
+          <p><i>Best viewed in any browser.</i></p>
+        </div>
+        <div class="draft__name display" id="draftName">ABHINAV</div>
+        <div class="draft__sel" id="draftSel"><i></i><i></i><i></i><i></i><span class="draft__dim mono" id="draftDim">0 × 0</span></div>
+        <div class="draft__tools mono" id="draftTools">
+          <span>Fill</span>
+          <b style="--c:#f3efe6"></b><b style="--c:#ff3f8e" id="draftPink"></b><b class="is-dark" style="--c:#08080b" id="draftDark"></b>
+        </div>
+      </div>
+      <div class="hero__agents" id="heroAgents" aria-hidden="true"></div>
+    </section>
+
+    <div class="sheet">
+
+    <!-- ───────── definition ───────── -->
+    <section class="def" id="def" data-label="अभिनव">
+      <div class="wrap">
+        <div class="def__word" lang="hi" aria-hidden="true"><span id="defWord">अभिनव</span></div>
+        <div class="def__grid">
+          <div class="def__side">
+            <p class="def__pron"><b>abhinav</b> <span class="mono">/ə.bʱɪ.nəʋ/</span></p>
+            <p class="def__pos" data-reveal><i>adjective, from Sanskrit</i></p>
+            <p class="def__see mono" data-reveal>see also:
+              <a href="#stella">Stella</a>, <a href="#kavya">Kavya</a>, <a href="#nacc">NACC</a>, <a href="#leadscout">LeadScout</a>
+            </p>
+          </div>
+          <ol class="def__list">
+            <li data-reveal><span class="mono">1</span><p>new; fresh; never seen before.</p></li>
+            <li data-reveal><span class="mono">2</span><p><b>Abhinav Gupta</b>, 21. Builds AI agents from Noida, India: the kind that make the phone call, drive the laptop and ship the work.</p></li>
+            <li data-reveal><span class="mono">3</span><p>the reason this page moved before you touched it.</p></li>
+          </ol>
+        </div>
+      </div>
+      <ul class="stats wrap">
+        <li><b data-count="4">4</b><span>agents with real jobs</span></li>
+        <li><b data-count="4">4</b><span>platforms in use</span></li>
+        <li><b data-count="6">6</b><span>websites live</span></li>
+        <li><b data-count="1">1</b><span>human giving the orders</span></li>
+      </ul>
+    </section>
+
+    <!-- ───────── crew index ───────── -->
+    <section class="crew" id="crew" data-label="The crew">
+      <div class="wrap">
+        <header class="crew__head">
+          <p class="kicker mono">The crew</p>
+          <h2 class="crew__title">Four agents. Four platforms.<br><span class="dim">Every one of them below is a working demo. Touch things.</span></h2>
+        </header>
+        <ol class="crew__list">
+          <li><a href="#stella" style="--c:#ffb21a;--ci:#08080b" data-you="meet her"><span class="crew__n mono">01</span><span class="crew__t display">Stella</span><span class="crew__r">Personal agent. Drives my laptop.</span><span class="crew__k mono">agent</span></a></li>
+          <li><a href="#kavya" style="--c:#ff3f8e;--ci:#08080b" data-you="call her"><span class="crew__n mono">02</span><span class="crew__t display">Kavya</span><span class="crew__r">Voice agent. Makes real phone calls.</span><span class="crew__k mono">agent</span></a></li>
+          <li><a href="#nacc" style="--c:#2f55ff;--ci:#ffffff" data-you="make a post"><span class="crew__n mono">03</span><span class="crew__t display">NACC</span><span class="crew__r">Marketing agent. Posts, video, ads.</span><span class="crew__k mono">agent</span></a></li>
+          <li><a href="#leadscout" style="--c:#22d47e;--ci:#08080b" data-you="find leads"><span class="crew__n mono">04</span><span class="crew__t display">LeadScout</span><span class="crew__r">Lead finder. Maps to spreadsheet.</span><span class="crew__k mono">agent</span></a></li>
+          <li><a href="#tatva" style="--c:#8f5bff;--ci:#ffffff" data-you="build a site"><span class="crew__n mono">05</span><span class="crew__t display">Tatva</span><span class="crew__r">Component library. 91 parts.</span><span class="crew__k mono">platform</span></a></li>
+          <li><a href="#sms" style="--c:#ff5a1f;--ci:#08080b" data-you="send one"><span class="crew__n mono">06</span><span class="crew__t display">SMS Portal</span><span class="crew__r">Bulk SMS on a real carrier route.</span><span class="crew__k mono">platform</span></a></li>
+          <li><a href="#panel" style="--c:#17d3bd;--ci:#08080b" data-you="chat"><span class="crew__n mono">07</span><span class="crew__t display">WhatsApp Panel</span><span class="crew__r">Chatbots that take payments.</span><span class="crew__k mono">platform</span></a></li>
+          <li><a href="#sites" style="--c:#f3efe6;--ci:#08080b" data-you="browse"><span class="crew__n mono">08</span><span class="crew__t display">Websites</span><span class="crew__r">Six of them. All live.</span><span class="crew__k mono">live</span></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="ribbon" aria-hidden="true"><div class="ribbon__track"><span>real calls</span><i>✦</i><span>real SMS</span><i>✦</i><span>real leads</span><i>✦</i><span>real payments</span><i>✦</i><span lang="hi">असली काम</span><i>✦</i><span>real calls</span><i>✦</i><span>real SMS</span><i>✦</i><span>real leads</span><i>✦</i><span>real payments</span><i>✦</i><span lang="hi">असली काम</span><i>✦</i></div></div>
+
+    <!-- ───────── 01 · Stella ───────── -->
+    <section class="room room--stella" id="stella" data-room="stella" data-label="01 · Stella">
+      <div class="wrap">
+        <header class="room__head">
+          <p class="kicker mono"><span>01</span> Agent · personal</p>
+          <h2 class="room__name display" data-split>Stella</h2>
+        </header>
+        <div class="room__body">
+          <div class="room__copy">
+            <p class="room__lead">My own AI agent. She lives on a server, talks to me on WhatsApp and by voice, and drives my laptop when there is work to do.</p>
+            <p>Give her a project and she becomes the tech lead. She plans it, hands the tasks to a team of other AIs, reviews their code, runs the tests and tells me honestly what is still broken.</p>
+            <ul class="facts">
+              <li><b>12</b><span>AIs she can brief at the same time</span></li>
+              <li><b>81/81</b><span>tests passing on the CRM her team built</span></li>
+              <li><b>9</b><span>rooms in her dashboard, from memory to voice</span></li>
+            </ul>
+            <p class="stack mono">Docker · WhatsApp · Gemini Live · Chrome DevTools Protocol · SSH</p>
+          </div>
+          <div class="stage" data-stage="stella" aria-label="Demo: Stella briefing her AI dev team"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── 02 · Kavya ───────── -->
+    <section class="room room--kavya" id="kavya" data-room="kavya" data-label="02 · Kavya">
+      <div class="room__ghost" lang="hi" aria-hidden="true">काव्या</div>
+      <div class="wrap">
+        <header class="room__head">
+          <p class="kicker mono"><span>02</span> Agent · voice</p>
+          <h2 class="room__name display" data-split>Kavya</h2>
+        </header>
+        <div class="room__body">
+          <div class="room__copy">
+            <p class="room__lead">A voice agent that makes and answers real phone calls, in Hindi and English, through an ordinary Android phone and its SIM.</p>
+            <p>There is no telephony provider in the loop. The laptop takes over the phone's calls over Bluetooth. She listens, thinks and speaks in one model, hangs up by herself and writes a summary after every call. Ask her if she is a robot and she tells the truth.</p>
+            <ul class="facts">
+              <li><b>1.25<small>s</small></b><span>to answer you mid-conversation</span></li>
+              <li><b>&lt;1<small>s</small></b><span>from pickup to her first word</span></li>
+              <li><b>2</b><span>languages, on one SIM card</span></li>
+            </ul>
+            <p class="stack mono">Pipecat · Gemini Live · PipeWire telephony · Bluetooth HFP · Python</p>
+            <p class="note">A prototype. She only calls numbers that agreed to test, which is what India's telecom rules ask for.</p>
+          </div>
+          <div class="stage" data-stage="kavya" aria-label="Demo: a phone call with Kavya"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── 03 · NACC ───────── -->
+    <section class="room room--nacc" id="nacc" data-room="nacc" data-label="03 · NACC">
+      <div class="wrap">
+        <header class="room__head">
+          <p class="kicker mono"><span>03</span> Agent · marketing · for Nucleus Ai</p>
+          <h2 class="room__name display" data-split>NACC</h2>
+        </header>
+        <div class="room__body">
+          <div class="room__copy">
+            <p class="room__lead">The marketing agent I built for Nucleus Ai. Ask it on WhatsApp or from its dashboard and it makes the post, cuts the video or sets up the ad campaign.</p>
+            <p>It works from each brand's kit (logo, colours, voice), knows which festival is next week, and reviews its own work before anything goes out.</p>
+            <ul class="facts">
+              <li><b>4</b><span>kinds of output: posts, videos, ads, websites</span></li>
+              <li><b>90<small>s</small></b><span>to build a website from one sentence</span></li>
+              <li><b>2</b><span>ad platforms it runs: Meta and Google</span></li>
+            </ul>
+            <p class="stack mono">Gemini · WhatsApp · React dashboard · Meta &amp; Google Ads APIs</p>
+          </div>
+          <div class="stage" data-stage="nacc" aria-label="Demo: NACC making a social post"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── 04 · LeadScout ───────── -->
+    <section class="room room--leadscout" id="leadscout" data-room="leadscout" data-label="04 · LeadScout">
+      <div class="wrap">
+        <header class="room__head">
+          <p class="kicker mono"><span>04</span> Agent · lead finder</p>
+          <h2 class="room__name display" data-split>LeadScout</h2>
+        </header>
+        <div class="room__body">
+          <div class="room__copy">
+            <p class="room__lead">Type “gyms in Noida”. It sweeps Google Maps, Justdial and business directories, then opens each business's own website to pull the phone, email and socials.</p>
+            <p>Stella's AI dev team wrote the app around it. Big requests are split area by area, de-duplicated, and come back as a clean spreadsheet.</p>
+            <ul class="facts">
+              <li><b>35</b><span>real leads in 26 seconds, for “cafe in Noida”</span></li>
+              <li><b>100</b><span>gyms found in 2 minutes 40 seconds</span></li>
+              <li><b>500</b><span>leads in a single request</span></li>
+            </ul>
+            <p class="stack mono">Node · headless Chrome · SQLite · React</p>
+          </div>
+          <div class="stage" data-stage="leadscout" aria-label="Demo: LeadScout scanning an area for leads"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── 05 · Tatva ───────── -->
+    <section class="room room--tatva" id="tatva" data-room="tatva" data-label="05 · Tatva">
+      <div class="room__ghost" lang="hi" aria-hidden="true">तत्त्व</div>
+      <div class="wrap">
+        <header class="room__head">
+          <p class="kicker mono"><span>05</span> Platform · component library</p>
+          <h2 class="room__name display" data-split>Tatva</h2>
+        </header>
+        <div class="room__body">
+          <div class="room__copy">
+            <p class="room__lead"><span lang="hi">तत्त्व</span> means element. Tatva/ui is my React component library: 91 animated components you install as source, and a composer that assembles them into a full page.</p>
+            <p>Describe a page in one sentence and it builds it. My agents use the same parts to hand a local shop a finished website in about a minute and a half.</p>
+            <ul class="facts">
+              <li><b>91</b><span>components in 11 categories</span></li>
+              <li><b>3,600+</b><span>automated checks on the library</span></li>
+              <li><b>1</b><span>command to install, also from AI assistants over MCP</span></li>
+            </ul>
+            <p class="stack mono">React · CSS · shadcn registry · MCP · Vite</p>
+          </div>
+          <div class="stage" data-stage="tatva" aria-label="Demo: a website assembling from one sentence"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── 06 · SMS Portal ───────── -->
+    <section class="room room--sms" id="sms" data-room="sms" data-label="06 · SMS Portal">
+      <div class="wrap">
+        <header class="room__head">
+          <p class="kicker mono"><span>06</span> Platform · messaging · for Nucleus Ai</p>
+          <h2 class="room__name display" data-split>SMS Portal</h2>
+        </header>
+        <div class="room__body">
+          <div class="room__copy">
+            <p class="room__lead">A complete bulk-SMS platform: a client portal and an admin console on top of the open-source Jasmin gateway, connected to a real carrier route and delivering to real phones.</p>
+            <p>It enforces India's DLT rules (entity IDs, sender headers, template matching) before a message is allowed out, then tracks every delivery receipt.</p>
+            <ul class="facts">
+              <li><b>25</b><span>pages across the client and admin sides</span></li>
+              <li><b>4<small>s</small></b><span>from pressing send to “delivered”</span></li>
+              <li><b>195</b><span>automated tests, 35 of them in a real browser</span></li>
+            </ul>
+            <p class="stack mono">FastAPI · React · Jasmin · RabbitMQ · Redis · Docker · Caddy</p>
+          </div>
+          <div class="stage" data-stage="sms" aria-label="Demo: an SMS travelling from portal to phone"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── 07 · WhatsApp Panel ───────── -->
+    <section class="room room--panel" id="panel" data-room="panel" data-label="07 · WhatsApp Panel">
+      <div class="wrap">
+        <header class="room__head">
+          <p class="kicker mono"><span>07</span> Platform · chat · for Nucleus Ai</p>
+          <h2 class="room__name display" data-split>WhatsApp Panel</h2>
+        </header>
+        <div class="room__body">
+          <div class="room__copy">
+            <p class="room__lead">The WhatsApp Business panel Nucleus Ai's customers log in to: chatbot flows, an AI agent, broadcasts and a shared inbox. It stands on the Wapto codebase. I run it and extend it.</p>
+            <p>My biggest addition is payments inside the chat. A business connects its own Razorpay, Stripe or PayPal. A flow block sends the link, waits, then branches on paid or not paid and tells the owner.</p>
+            <ul class="facts">
+              <li><b>3</b><span>payment gateways a business can plug in</span></li>
+              <li><b>10</b><span>items a customer can choose from in one message</span></li>
+              <li><b>0</b><span>unsigned webhooks accepted</span></li>
+            </ul>
+            <p class="stack mono">Node · MongoDB · React · WhatsApp Cloud API · Razorpay · Stripe · PayPal</p>
+          </div>
+          <div class="stage" data-stage="panel" aria-label="Demo: a chatbot flow that takes a payment"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── 08 · Websites ───────── -->
+    <section class="room room--sites" id="sites" data-room="sites" data-label="08 · Websites">
+      <div class="wrap">
+        <header class="room__head">
+          <p class="kicker mono"><span>08</span> Live · six of them</p>
+          <h2 class="room__name display" data-split>Websites</h2>
+          <p class="room__lead room__lead--wide">Six sites I built and keep online. A law firm, a property advisory, a messaging company and more. They are all up right now; open any of them.</p>
+        </header>
+      </div>
+      <div class="gallery" id="gallery">
+        <div class="gallery__track" id="galleryTrack">
+          <a class="shot" href="https://nucleusai.si" target="_blank" rel="noopener" data-you="open"><div class="shot__bar mono"><i></i><i></i><i></i><span>nucleusai.si</span></div><img src="/shots/nucleusai.si.webp" alt="Screenshot of nucleusai.si" loading="lazy" width="1200" height="750"><div class="shot__cap"><b>Nucleus Ai</b><span>WhatsApp API, chatbots and marketing</span></div></a>
+          <a class="shot" href="https://anilanandassociates.com" target="_blank" rel="noopener" data-you="open"><div class="shot__bar mono"><i></i><i></i><i></i><span>anilanandassociates.com</span></div><img src="/shots/anilanandassociates.com.webp" alt="Screenshot of anilanandassociates.com" loading="lazy" width="1200" height="750"><div class="shot__cap"><b>Anil Anand &amp; Associates</b><span>Law firm</span></div></a>
+          <a class="shot" href="https://houskeys.co.in" target="_blank" rel="noopener" data-you="open"><div class="shot__bar mono"><i></i><i></i><i></i><span>houskeys.co.in</span></div><img src="/shots/houskeys.co.in.webp" alt="Screenshot of houskeys.co.in" loading="lazy" width="1200" height="750"><div class="shot__cap"><b>HouseKeys</b><span>Real-estate advisory</span></div></a>
+          <a class="shot" href="https://xshootsms.com" target="_blank" rel="noopener" data-you="open"><div class="shot__bar mono"><i></i><i></i><i></i><span>xshootsms.com</span></div><img src="/shots/xshootsms.com.webp" alt="Screenshot of xshootsms.com" loading="lazy" width="1200" height="750"><div class="shot__cap"><b>Xshootsms</b><span>Enterprise messaging platform</span></div></a>
+          <a class="shot" href="https://divyarudra.com" target="_blank" rel="noopener" data-you="open"><div class="shot__bar mono"><i></i><i></i><i></i><span>divyarudra.com</span></div><img src="/shots/divyarudra.com.webp" alt="Screenshot of divyarudra.com" loading="lazy" width="1200" height="750"><div class="shot__cap"><b>Divya Rudra</b><span>Rudraksha and gemstones</span></div></a>
+          <a class="shot" href="https://poojahawan.com" target="_blank" rel="noopener" data-you="open"><div class="shot__bar mono"><i></i><i></i><i></i><span>poojahawan.com</span></div><img src="/shots/poojahawan.com.webp" alt="Screenshot of poojahawan.com" loading="lazy" width="1200" height="750"><div class="shot__cap"><b>Pooja Hawan</b><span>Puja booking platform</span></div></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── about ───────── -->
+    <section class="about" id="about" data-label="The human">
+      <div class="wrap about__grid">
+        <div class="about__copy">
+          <p class="kicker mono">The human</p>
+          <h2 class="about__title display" data-split>One person.<br>Many hands.</h2>
+          <p class="about__lead">I'm Abhinav. I'm 21, I'm studying for a diploma in Information Technology, and I build from Noida.</p>
+          <p>I work AI-first. Claude, Codex and Gemini write code with me, and my own agents write code for each other. My part is the idea, the taste and the testing: on real phones, real carriers and real customers' chats.</p>
+          <p>What that buys is speed. Half of what you just scrolled past did not exist two months ago.</p>
+        </div>
+        <div class="term" id="term" aria-label="Terminal. Type help.">
+          <div class="term__bar mono"><i></i><i></i><i></i><span>abhinav@noida: ~</span></div>
+          <div class="term__body mono" id="termBody"></div>
+          <label class="term__line mono"><span class="term__ps">❯</span><input id="termIn" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal input" placeholder="type help"></label>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────── contact ───────── -->
+    <section class="contact" id="contact" data-label="Say hi">
+      <div class="wrap">
+        <p class="kicker mono">Say <span lang="hi">नमस्ते</span></p>
+        <h2 class="contact__title display" data-split>Got work<br>an agent<br>should do?</h2>
+        <div class="contact__row">
+          <p class="contact__lead">Tell me the job. I'll tell you whether a machine can do it, and then I'll build the machine.</p>
+          <div class="contact__links" id="contactLinks">
+            <a class="btn btn--ink" href="https://github.com/abhinavgupta104" target="_blank" rel="noopener" data-you="open">GitHub ↗</a>
+          </div>
+        </div>
+        <footer class="foot mono">
+          <span>© 2026 Abhinav Gupta</span>
+          <span>Built by one human and his agents.</span>
+          <button class="foot__again" id="tourBtnFoot" type="button" data-you="again">Let Stella drive again ↺</button>
+        </footer>
+      </div>
+    </section>
+
+    </div><!-- /.sheet -->
+  </main>
+
+  <div class="tourcur" id="tourLayer" aria-hidden="true"></div>
+  <div class="you mono" id="you" aria-hidden="true">you</div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
