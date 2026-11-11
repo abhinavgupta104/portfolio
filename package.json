@@ -12,7 +12,8 @@
     "sites": "node scripts/sites.mjs",
     "font": "uv run --no-project --with fonttools --with brotli scripts/hindi-font.py",
     "fps": "node scripts/intro-fps.mjs",
-    "deploy:live": "bash scripts/deploy.sh"
+    "deploy:live": "bash scripts/deploy.sh",
+    "record": "node scripts/record.mjs"
   },
   "dependencies": {
     "@fontsource-variable/anek-devanagari": "^5.3.0",

@@ -59,11 +59,19 @@ LinkedIn need the full address.
 ```sh
 pnpm smoke      # clicks through every demo and the terminal; needs `pnpm dev` running
 pnpm fps        # times the opening and reports any slow frames (target: 60 fps, none over 25 ms)
+pnpm record ~/Videos/portfolio.mp4   # video of the whole site: the opening, then Stella's tour
 pnpm shots page shots-out 1440x900     # screenshots of every section
 pnpm shots tour shots-out 1440x900     # frames of the whole Stella tour
 pnpm sites      # retakes the seven website screenshots in public/shots
 pnpm font       # re-trims the Hindi font; run after adding a new Hindi word
 ```
+
+`pnpm record` renders frame by frame on a frozen clock instead of filming the
+screen, so the video is a steady 60 fps even though capture is slower than real
+time (about 9 minutes for the 2½-minute walkthrough at 1920×1080). It records the
+live site by default; `--url http://127.0.0.1:5190/` records your local copy,
+`--size 390x844 --scale 2.75` records the phone layout as a sharp portrait
+video, and `--test 4` records only the first 4 seconds. The video is silent.
 
 `pnpm font` needs `uv`. `pnpm sites` needs ImageMagick. Both, like the checks,
 use the Chrome already installed on this machine.
