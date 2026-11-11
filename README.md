@@ -18,15 +18,21 @@ pnpm preview    # serves dist/ at http://127.0.0.1:5191
 
 ## Where it is live
 
-https://portfolio.banadiyabhai.online, served by GitHub Pages.
+https://portfolio.banadiyabhai.online
 
-- **Publishing:** push to `main`. The workflow in `.github/workflows/deploy.yml`
-  builds the site and publishes it; it is live about a minute later. Progress is
-  on the repo's Actions tab.
-- **Domain:** `banadiyabhai.online` is at Hostinger. A CNAME record
-  `portfolio → abhinavgupta104.github.io` sends the subdomain to GitHub, and
-  `public/CNAME` tells GitHub which domain the site answers to. GitHub issues and
-  renews the HTTPS certificate by itself.
+- **Publishing:** run `pnpm deploy:live`. It builds the site, uploads it to the
+  server and swaps it in, so visitors never see a half-copied site. It needs
+  `gcloud` logged in with access to the `divyarudra` project.
+- **Server:** avi-server (the machine behind stella.banadiyabhai.online). Caddy
+  serves `/srv/portfolio` through its own `portfolio.banadiyabhai.online` block
+  in `/etc/caddy/Caddyfile`. The folder is root-owned and outside Stella's home,
+  so her site sync never touches it. Caddy gets and renews the HTTPS certificate
+  by itself.
+- **Domain:** `banadiyabhai.online` is at Hostinger (its own account, separate
+  from the six client sites). An A record `portfolio → 34.93.18.57` points the
+  subdomain at the server.
+- **GitHub:** keeps the code. Every push runs a build check
+  (`.github/workflows/build.yml`); it does not publish anything.
 - **Moving hosts later:** `dist/` is a plain static site with relative paths and
   works on any host, from a domain or a sub-folder.
 
